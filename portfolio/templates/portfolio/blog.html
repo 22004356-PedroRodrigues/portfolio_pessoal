@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/blog.css' %}">
+    <form action="" class="form_template" method="post">
+        <h1>Deixe o seu feedback 😊</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submeter">
+    </form>
+
+    <div class="feedbacks">
+        <h1>Alguns feedbacks...</h1>
+        {% for post in posts %}
+            <div class="container">
+                <img src="../../static/portfolio/images/hero-bg.jpg" alt="Avatar">
+                <p><b>{{ post.nome_pessoa }}:</b> {{ post.descricao }}</p>
+                <span class="time">{{ post.data }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/quizz.css' %}">
+    <h1 class="titulo">QUIZZ sobre Programação Web 🖥</h1>
+    <form action="" method="post" class="form_template">
+        {% csrf_token %}
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Jacinto Hernandez"><br>
+        <div class="text_answer_block">
+            <h3>Questões escritas sobre programação web</h3><br>
+            <label for="pergunta1">Como se chama a propriedade que alinha texto?</label>
+            <input type="text" id="pergunta1" name="pergunta1"><br>
+            <label for="pergunta2">Como se chama a propriedade para fazer um flexbox?</label>
+            <input type="text" id="pergunta2" name="pergunta2"><br>
+            <label for="pergunta3">Na programação Web HTML é acrónimo para...</label>
+            <input type="text" id="pergunta3" name="pergunta3">
+        </div>
+        <div class="text_answer_block">
+            <h3>Questões de escolha múltipla sobre programação web</h3><br>
+            <p>Qual a extensão das folhas de estilo?</p>
+            <input type="radio" id="pergunta4_1" name="pergunta4" value="css">
+            <label for="pergunta4_1">CSS</label><br>
+            <input type="radio" id="pergunta4_2" name="pergunta4" value="html">
+            <label for="pergunta4_2">HTML</label><br>
+            <input type="radio" id="pergunta4_3" name="pergunta4" value="js">
+            <label for="pergunta4_3">JS</label><br>
+            <input type="radio" id="pergunta4_4" name="pergunta4" value="ts">
+            <label for="pergunta4_4">TS</label><br><br>
+
+            <p>Como se faz uma quebra de linha?</p>
+            <input type="radio" id="pergunta5_1" name="pergunta5" value="&lt;br&gt;">
+            <label for="pergunta5_1">&lt;br&gt;</label><br>
+            <input type="radio" id="pergunta5_2" name="pergunta5" value="&lt;b&gt;">
+            <label for="pergunta5_2">&lt;b&gt;</label><br>
+            <input type="radio" id="pergunta5_3" name="pergunta5" value="&lt;brk&gt;">
+            <label for="pergunta5_3">&lt;brk&gt;</label><br>
+            <input type="radio" id="pergunta5_4" name="pergunta5" value="&lt;linebreak&gt;">
+            <label for="pergunta5_4">&lt;linebreak&gt;</label><br><br>
+        </div>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

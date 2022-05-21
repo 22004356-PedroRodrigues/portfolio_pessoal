@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PR - Pedro Rodrigues</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+</head>
+
+<body>
+<header>
+    <a id="logo" href="{% url 'home' %}">
+        <img id="logo_img" src="{% static 'portfolio/images/logo.png' %}" alt="associations logo">
+    </a>
+    <nav>
+        <div class="dropdown">
+            <a>Sobre mim</a>
+            <div class="dropdown-content">
+                <a href="{% url 'licenciatura' %}">Licenciatura</a>
+                <a href="">Educação</a>
+                <a href="">Aptidões e competências pessoais</a>
+            </div>
+        </div>
+        <a href="">Projetos</a>
+        <div class="dropdown">
+            <a href="">Programação Web</a>
+            <div class="dropdown-content">
+                <a href="{% url 'quizz' %}">Quizz</a>
+            </div>
+        </div>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="">Sobre este website</a>
+        <a href="">Contacto</a>
+    </nav>
+</header>
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+<footer>
+    <p class="footer_name">Website desenvolvido por: <a href="https://gpemrodrigues.github.io">Pedro Rodrigues</a></p>
+    <p class="logo_faculdade_p">
+        <a href="https://www.ulusofona.pt/">
+            <img class="logo_faculdade" src="{% static 'portfolio/images/white_logo_ulht.png' %}">
+        </a>
+    </p>
+    <div class="social_media_icons">
+        <a href="https://www.facebook.com/org.amiama"><p class="social fa-brands fa-facebook"></p></a>
+        <a href="https://www.instagram.com/org.amiama/"><p class="social fa-brands fa-instagram"></p></a>
+    </div>
+</footer>
+</body>
+</html>

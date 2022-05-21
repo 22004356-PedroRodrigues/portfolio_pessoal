@@ -1,0 +1,32 @@
+.form_template {
+    text-align: center;
+    outline: black solid;
+    width: 50%;
+    margin: 1.3rem auto;
+    align-items: center;
+    padding-top: 1.2rem;
+}
+
+.titulo {
+    text-align: center;
+}
+
+input {
+    margin-bottom: 1.3rem;
+}
+
+.form_template * {
+    font-size: 1.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.text_answer_block {
+    padding-top: 1.2rem;
+    outline-style: solid;
+    width: 90%;
+    margin: 1.2rem auto;
+}

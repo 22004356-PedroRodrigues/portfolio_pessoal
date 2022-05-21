@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/team_individual_styles.css' %}">
+
+     <div id="about_us" class="about-sestion container-fluid">
+         <div class="container">
+             <div class="session-title row">
+                 <h2>{{ nome }}</h2>
+                 <h3>{{ subtitle }}</h3>
+             </div>
+             <div class="about-row row">
+                 <div class="col-md-5">
+                     <img class="about_logo" src="../../static/portfolio/images/Bina.png" alt="">
+                 </div>
+                 <div class="col-md-7">
+                     <p>{{ texto|linebreaksbr }}</p>
+                 </div>
+             </div>
+         </div>
+     </div>
+{% endblock %}

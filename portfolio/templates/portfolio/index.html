@@ -1,0 +1,62 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <div class="main_class">
+        <p class="motivational_phrase">
+            To the moon <a class="rocket" href="#about_me">
+            🚀
+            <span class="tooltiptext">Click!</span>
+        </a>
+        </p>
+        {% load static %}
+        <img id="my_picture" src="{% static 'portfolio/images/hero-bg.jpg' %}">
+    </div>
+    <article class="index_description">
+        <div class="image"></div>
+        <div id="about_me" class="about_me_index">
+            <p style="font-family: 'Courgette', cursive;">
+                Tenho 21 anos e estou em busca de mudar o mundo! Eu prospero para aprender o máximo que posso para
+                ajudar o
+                mundo a se tornar um lugar melhor. Desenvolvi para corporações multinacionais onde aprendi a aprimorar
+                minhas soft e hard skills! Adoro ter vários hobbies, desde jogos, exercícios, leitura, qualquer coisa é
+                maravilhosa para fazer se estou feliz fazendo isso e principalmente se estou aprendendo algo novo.
+                Quando eu
+                era mais jovem, fiz voluntariado em abrigos para sem-teto e animais, onde aprendi a permanecer positivo
+                mesmo quando as coisas não parecem boas!
+            </p>
+        </div>
+        <div class="cards">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"
+                         style="background-image: url('../../static/portfolio/images/licenciatura.jpg')">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1><a href="{% url 'licenciatura' %}">Licenciatura</a></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"
+                         style="background-image: url('../../static/portfolio/images/blog.jpg')">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1><a href="{% url 'blog' %}">Blog</a></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"
+                         style="background-image: url('../../static/portfolio/images/web.jpg')">
+                        <div></div>
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Programação Web</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

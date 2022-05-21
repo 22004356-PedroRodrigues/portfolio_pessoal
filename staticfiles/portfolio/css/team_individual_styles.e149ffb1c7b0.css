@@ -1,0 +1,83 @@
+.about_logo {
+    max-width: 100%;
+}
+
+header{
+  display: flex;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+.session-title {
+    padding: 30px;
+    margin: 0px 0px 20px;
+}
+
+.session-title h2 {
+    width: 100%;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.session-title h3 {
+    max-width: 850px;
+    text-align: center;
+    float: none;
+    font-size: 1.35rem;
+    margin: 15px auto auto;
+}
+
+.session-title span {
+    float: right;
+    font-style: italic;
+}
+
+.container {
+    max-width: 1170px;
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 10px 15px;
+    }
+}
+
+.about-sestion {
+    background: #eee;
+    padding: 50px;
+}
+
+@media screen and (max-width: 940px) {
+    .about-sestion {
+        padding: 30px 10px;
+    }
+}
+
+.about-sestion img {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+    border-radius: 5px;
+}
+
+.about-sestion p {
+    font-size: .95rem;
+    margin-bottom: 15px;
+    line-height: 27px;
+}
+
+.about-sestion {
+    background: #eee;
+}
+
+.about_logo {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+    border-radius: 5px;
+}
+
+.about-sestion p {
+    font-size: .95rem;
+    margin-bottom: 15px;
+    line-height: 27px;
+}

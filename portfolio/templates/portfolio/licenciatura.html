@@ -1,0 +1,54 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/licenciatura.css' %}">
+    <div id="equipa">
+        <div class="container">
+            <div class="section-title">
+                <h1>Primeiro Ano</h1>
+            </div>
+            <div class="row">
+                {% for cadeira in cadeiras %}
+                    {% if cadeira.ano == 1 %}
+                        <div class="column">
+                            <div class="team-2">
+                                <div class="team-img">
+                                    {% load static %}
+                                    <img src="{% static 'portfolio/images/' %}{{ cadeira.imagem }}" alt="Team Image">
+                                </div>
+                                <div class="team-content">
+                                    <h2>{{ cadeira.nome_cadeira }}</h2>
+                                    <h3>{{ cadeira.grupo }}</h3>
+                                    <p>{{ cadeira.descricao }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="section-title">
+                <h1>Segundo Ano</h1>
+            </div>
+            <div class="row">
+                {% for cadeira in cadeiras %}
+                    {% if cadeira.ano == 2 %}
+                        <div class="column">
+                            <div class="team-2">
+                                <div class="team-img">
+                                    {% load static %}
+                                    <img src="{% static 'portfolio/images/' %}{{ cadeira.imagem }}" alt="Team Image">
+                                </div>
+                                <div class="team-content">
+                                    <h2>{{ cadeira.nome_cadeira }}</h2>
+                                    <h3>{{ cadeira.grupo }}</h3>
+                                    <p>{{ cadeira.descricao }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
