@@ -25,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env.str("SECRET_KEY")
-#SECRET_KEY = 'django-insecure-*(h^ea%!&r)%bc=(4l^&2^e%md@@jgbed%=@l$t1ht7^(*v7h+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = ['pedro-macedo-rodrigues.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -80,13 +79,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-#'ENGINE': 'django.db.backends.sqlite3',
-#'NAME': BASE_DIR / 'db.sqlite3',
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': BASE_DIR / 'db.sqlite3',
 
 DATABASES = {
-    'default': {
-        env.dj_db_url("DATABASE_URL")
-    }
+    'default': env.dj_db_url("DATABASE_URL")
 }
 
 # Password validation
@@ -128,7 +125,7 @@ STATIC_URL = '/portfolio/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('portfolio/static'))]  # novo se a pasta static estiver na pasta da aplicação app, altere para str(BASE_DIR.joinpath('app/static'))
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))   # novo
+STATICFILES_DIRS = [str(BASE_DIR.joinpath(
+    'portfolio/static'))]  # novo se a pasta static estiver na pasta da aplicação app, altere para str(BASE_DIR.joinpath('app/static'))
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))  # novo
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # novo
