@@ -20,7 +20,12 @@ from . import views
 urlpatterns = [
     path('', views.home_page_view, name='home'),
     path('licenciatura', views.licenciatura_page_view, name='licenciatura'),
-    path('equipa/d_bina', views.team_individual_view, name='individual'),
     path('blog', views.blog_view, name='blog'),
-    path('quizz', views.quizz_view, name='quizz')
+    path('quizz', views.quizz_view, name='quizz'),
+    path('educacao', views.educacao_view, name='educacao'),
+    path('projetos', views.projetos_view, name='projetos'),
+    path('tecnologia', views.tecnologia_view, name='tecnologia'),
+    path('contacto', views.contacto_view, name='contacto'),
+    path('noticias', views.noticia_view, name='noticias'),
+    path('sobre_website', views.sobre_website_view, name='sobre_website')
 ]

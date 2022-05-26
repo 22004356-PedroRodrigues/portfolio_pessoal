@@ -47,6 +47,7 @@
 
 .thumbnail-boxed-left img{
     width: 100%;
+    max-width: 250px;
     height: auto;
     border: 0;
 }

@@ -48,6 +48,7 @@ nav a {
 
 main {
     background-color: #ffffff;
+    min-height: 70vh;
 }
 
 footer {
@@ -258,7 +259,7 @@ p {
     background-color: #f9f9f9;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     padding: 12px 16px;
-    z-index: 1;
+    z-index: 4;
 }
 
 .dropdown:hover .dropdown-content {

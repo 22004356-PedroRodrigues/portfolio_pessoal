@@ -1,0 +1,31 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block main %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/about_website.css' %}">
+    <div class="container">
+        <div class="row">
+            <div class="column left">
+                <span class="dot" style="background:#ED594A;"></span>
+                <span class="dot" style="background:#FDD800;"></span>
+                <span class="dot" style="background:#5AC05A;"></span>
+            </div>
+            <div class="column middle">
+                <input type="text" value="http://pedro-macedo-rodrigues.herokuapp.com">
+            </div>
+            <div class="column right">
+                <div style="float:right">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            {% for informacao in informacaos %}
+                <h3>{{ informacao.titulo }}</h3>
+                <p>{{ informacao.descricao }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

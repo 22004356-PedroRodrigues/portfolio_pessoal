@@ -1,0 +1,147 @@
+.cards{
+    display: grid;
+    flex-direction: row;
+    flex-flow: wrap;
+    padding: 70px 70px 0px 70px;
+}
+
+.card{
+    position: relative;
+    background: #f2f3f8;
+    text-align: left;
+    will-change: transform, box-shadow;
+    transition: 0.33s all ease-out;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    transform: scale(1);
+    box-shadow: 0 3px 30px transparent;
+    bottom: 30px;
+    margin: 10px
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 4px;
+    background: #5acea4;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 13px 0px rgb(0 0 0 / 22%);
+}
+
+.thumbnail-boxed-left {
+    position: relative;
+    overflow: hidden;
+    width: calc(50% - 30px);
+    max-width: 370px;
+    flex-shrink: 0;
+}
+
+.thumbnail-boxed-left img{
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border: 0;
+}
+
+.thumbnail-boxed-body {
+    padding: 20px 20px 25px 20px;
+}
+
+.thumbnail-boxed-text {
+    margin-top: 3px;
+}
+
+.thumbnail-boxed-footer {
+    margin-top: 13px;
+}
+
+.thumbnail-boxed-meta {
+    position: relative;
+    transform: translateY(-3px);
+    margin-bottom: -3px;
+    margin-left: -8px;
+    margin-right: -8px;
+    color: #151515;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.thumbnail-boxed-meta * {
+    display: inline-block;
+    vertical-align: middle;
+}
+.thumbnail-boxed-meta > * {
+    margin-top: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.thumbnail-boxed-meta li * + * {
+    margin-left: 5px;
+}
+
+.icon-tan-hide {
+    color: #fca15f;
+}
+
+.icon-xs {
+    font-size: 14px;
+}
+.icon {
+    display: inline-block;
+    text-align: center;
+}
+
+.thumbnail-boxed-title {
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+.thumbnail-boxed-title {
+    font-family: "Poppins", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    color: #151515;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+.thumbnail-boxed-title p{
+    margin: 0;
+}
+
+.thumbnail-boxed-title a{
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.2s all ease-out;
+}
+
+.thumbnail-boxed-title a:active, a:hover{
+    color: #5acea4;
+}
+
+.spacing-30 > * {
+    margin-top: 30px;
+    pointer-events: auto;
+}
+
+.thumbnail-boxed-text p{
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: .002em;
+    line-height: 1.71429;
+    color: #9b9b9b;
+}

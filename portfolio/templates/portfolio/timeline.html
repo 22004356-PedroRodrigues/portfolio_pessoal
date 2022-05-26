@@ -1,0 +1,95 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/timeline.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <div class="timeline">
+        <h1>Timeline formativa</h1>
+        <div class="container left">
+            <div class="content">
+                <h2>2015</h2>
+                <p>Começo do curso profissional de técnico de gestão e programação de sistemas informáticos</p>
+                <p>INETE - Instituto de Educação Técnica</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>2018</h2>
+                <p>Fim do curso profissional de técnico de gestão e programação de sistemas informáticos</p>
+                <p>INETE - Instituto de Educação Técnica</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>2020</h2>
+                <p>Início da licenciatura de Informática de Gestão</p>
+                <p>ULHT - Universidade Lusófona de Humanidades e Tecnologias</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>2023 (Previsão)</h2>
+                <p>Fim da licenciatura de Informática de Gestão</p>
+                <p>ULHT - Universidade Lusófona de Humanidades e Tecnologias</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="certificados">
+        <h1>Certificados e Provas</h1>
+        <div class="cert_comps">
+            <div class="cert_comp">
+                <img src="{% static 'portfolio/images/topas.png' %}">
+            </div>
+            <div class="cert_comp">
+                <img src="{% static 'portfolio/images/logo_olimpiadas.png' %}">
+            </div>
+        </div>
+    </div>
+
+    <div class="spoken_languages">
+        <h1>Linguas Faladas</h1>
+        <div class="language">
+            <img src="{% static 'portfolio/images/portugal.png' %}">
+            <img src="{% static 'portfolio/images/reino-unido.png' %}">
+        </div>
+    </div>
+    <div class="competencias">
+        <h1>Competências e aptidões pessoais</h1>
+        <div id="competencias_lista_id" class="competencias_lista">
+            <div class="competencia">
+                <i class="fa-solid fa-lightbulb"></i>
+                <p>Creatividade</p>
+            </div>
+            <div class="competencia">
+                <i class="fa-solid fa-check-double"></i>
+                <p>Disciplina</p>
+            </div>
+            <div class="competencia">
+                <i class="fa-solid fa-comment"></i>
+                <p>Skills de comunicação</p>
+            </div>
+            <div class="competencia">
+                <i class="fa-solid fa-door-open"></i>
+                <p>Foco e mente aberta</p>
+            </div>
+            <div class="competencia">
+                <i class="fa-solid fa-link"></i>
+                <p>Trabalho em equipa e colaboração</p>
+            </div>
+            <div class="competencia">
+                <i class="fa-solid fa-heart"></i>
+                <p>Perserverança e auto-motivação</p>
+            </div>
+            <div class="competencia">
+                <i class="fa-solid fa-dumbbell"></i>
+                <p>Resiliência</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

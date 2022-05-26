@@ -16,18 +16,8 @@ def licenciatura_page_view(request):
     return render(request, 'portfolio/licenciatura.html', context)
 
 
-def team_individual_view(request):
-    nome = 'D.Bina'
-    subtitle = 'Fundadora e Amante de animais'
-    texto = 'A D. Bina, como a tratam os amigos, é presença constante da Amiama.\n' \
-            'É ela quem ‘põe ordem na casa’ gerindo o dia a dia entre os medicamentos e tratamentos dos patudos mais ' \
-            'velhos e os cuidados de higiene e de alimentação que permitem albergar todos os cães que aqui esperam um ' \
-            'lar, transformando histórias tristes em dias felizes. ' \
-            'Um trabalho que não é fácil mas ao qual se entrega de coração.'
-    return render(request, 'portfolio/equipa_individual_template.html',
-                  {'nome': nome,
-                   'subtitle': subtitle,
-                   'texto': texto})
+def educacao_view(request):
+    return render(request, 'portfolio/timeline.html')
 
 
 def blog_view(request):
@@ -78,3 +68,28 @@ def desenha_graficos_resultado(request):
     plt.barh(usernames_y, pontuacao_x)
     plt.savefig('portfolio/static/portfolio/images/plot.png', bbox_inches='tight')
     pass
+
+
+def projetos_view(request):
+    context = {'projetos': Projeto.objects.all()}
+    return render(request, 'portfolio/projetos.html', context)
+
+
+def tecnologia_view(request):
+    context = {'tecnologias': Tecnologia.objects.all()}
+    return render(request, 'portfolio/tecnologia.html', context)
+
+
+def contacto_view(request):
+    context = {'contacto': Aluno.objects.first()}
+    return render(request, 'portfolio/perfil_individual.html', context)
+
+
+def noticia_view(request):
+    context = {'noticias': Noticia.objects.all()}
+    return render(request, 'portfolio/noticias.html', context)
+
+
+def sobre_website_view(request):
+    context = {'informacaos': Informacao.objects.all()}
+    return render(request, 'portfolio/about_website.html', context)

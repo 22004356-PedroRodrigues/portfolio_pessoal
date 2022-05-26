@@ -1,0 +1,35 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/tecnologia.css' %}">
+
+    <div class="cards">
+        {% for tecnologia in tecnologias %}
+            <div class="card">
+                <div class="thumbnail-boxed-left">
+                    <img class="thumbnail-boxed-image"
+                         src="{% static 'portfolio/images/' %}{{ tecnologia.tec_logotipo }}"
+                         alt="" width="370" height="254">
+                </div>
+                <div class="thumbnail-boxed-body">
+                    <p class="thumbnail-boxed-title"><a
+                            href="{{ tecnologia.tec_site_link }}"></a>{{ tecnologia.tec_acronimo }}
+                        : {{ tecnologia.tec_nome }}</p>
+                    <div class="thumbnail-boxed-text">
+                        <p>{{ tecnologia.tec_descricao }}</p>
+                    </div>
+                    <div class="thumbnail-boxed-footer">
+                        <ul class="thumbnail-boxed-meta">
+                            <li><span
+                                    class="icon icon-xs icon-tan-hide fa-regular fa-calendar-check"></span>
+                                <span>{{ tecnologia.tec_ano_criacao }} anos</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/perfil_individual.css' %}">
+
+     <div id="about_us" class="about-sestion container-fluid">
+         <div class="container">
+             <div class="session-title row">
+                 <h2>{{ contacto.nome_aluno }}</h2>
+                 <h3><a href="{{ contacto.link_linkedin }}">{{ contacto.link_linkedin }}</a></h3>
+             </div>
+             <div class="about-row row">
+                 <div class="col-md-5">
+                     <img class="about_logo" src="{% static 'portfolio/images/' %}{{ contacto.foto_aluno }}" alt="">
+                 </div>
+                 <div class="col-md-7">
+                     <h3>Github: <a href="{{ contacto.link_github }}">{{ contacto.link_github }}</a></h3>
+                     <h3>Instagram: <a href="{{ contacto.link_instagram }}">{{ contacto.link_instagram }}</a></h3>
+                     <h3>Cidade: {{ contacto.cidade }}</h3>
+                 </div>
+             </div>
+         </div>
+     </div>
+{% endblock %}

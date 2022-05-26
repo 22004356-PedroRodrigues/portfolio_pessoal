@@ -30,20 +30,24 @@
             <a>Sobre mim</a>
             <div class="dropdown-content">
                 <a href="{% url 'licenciatura' %}">Licenciatura</a>
-                <a href="">Educação</a>
-                <a href="">Aptidões e competências pessoais</a>
+                <a href="{% url 'educacao' %}">Educação</a>
+                <a href="{% url 'educacao' %}#competencias_lista_id">Aptidões e competências pessoais</a>
             </div>
         </div>
-        <a href="">Projetos</a>
+        <a href="{% url 'projetos' %}">Projetos</a>
         <div class="dropdown">
             <a href="">Programação Web</a>
             <div class="dropdown-content">
                 <a href="{% url 'quizz' %}">Quizz</a>
+                <a href="{% url 'tecnologia' %}">Tecnologias</a>
+                <a href="https://a22004356-pw-lab1.herokuapp.com/">Laboratórios</a>
+                <a href="{% url 'noticias' %}">Notícias</a>
+                <a href="">Exemplos de técnicas</a>
             </div>
         </div>
         <a href="{% url 'blog' %}">Blog</a>
-        <a href="">Sobre este website</a>
-        <a href="">Contacto</a>
+        <a href="{% url 'sobre_website' %}">Sobre este website</a>
+        <a href="{% url 'contacto' %}">Contacto</a>
     </nav>
 </header>
 <main>

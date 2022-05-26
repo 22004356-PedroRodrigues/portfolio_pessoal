@@ -1,0 +1,21 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block main %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/noticias.css' %}">
+    <div class="row">
+        {% for noticia in noticias %}
+            <div class="column">
+                <div class="card">
+                    <img src="{% static 'portfolio/images/' %}{{ noticia.imagem }}" style="width:100%">
+                    <div class="container">
+                        <h2>{{ noticia.titulo }}</h2>
+                        <p>{{ noticia.descricao }}</p>
+                        <p>
+                            <button class="button"><a href="{{ noticia.link }}">LER MAIS...</a></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
