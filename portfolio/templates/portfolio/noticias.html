@@ -6,7 +6,7 @@
         {% for noticia in noticias %}
             <div class="column">
                 <div class="card">
-                    <img src="{% static 'portfolio/images/' %}{{ noticia.imagem }}" style="width:100%">
+                    <img src="{{ noticia.imagem }}" style="width:100%">
                     <div class="container">
                         <h2>{{ noticia.titulo }}</h2>
                         <p>{{ noticia.descricao }}</p>

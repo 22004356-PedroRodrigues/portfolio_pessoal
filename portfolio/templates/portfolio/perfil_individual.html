@@ -12,7 +12,7 @@
              </div>
              <div class="about-row row">
                  <div class="col-md-5">
-                     <img class="about_logo" src="{% static 'portfolio/images/' %}{{ contacto.foto_aluno }}" alt="">
+                     <img class="about_logo" src="{{ contacto.foto_aluno }}" alt="">
                  </div>
                  <div class="col-md-7">
                      <h3>Github: <a href="{{ contacto.link_github }}">{{ contacto.link_github }}</a></h3>

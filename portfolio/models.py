@@ -3,6 +3,8 @@ from datetime import date
 
 
 # Create your models here.
+def resolution_path(instance, filename):
+    return f'users/{instance.id}/'
 
 
 class Professor(models.Model):
@@ -51,7 +53,7 @@ class PontuacaoQuizz(models.Model):
 class Projeto(models.Model):
     proj_titulo = models.CharField(max_length=100)
     proj_descricao = models.CharField(max_length=100)
-    proj_imagem = models.ImageField()
+    proj_imagem = models.ImageField(upload_to=resolution_path)
     proj_ano = models.CharField(max_length=100)
     proj_cadeira = models.ForeignKey(Cadeira, on_delete=models.CASCADE)
 
@@ -63,7 +65,7 @@ class Tecnologia(models.Model):
     tec_nome = models.CharField(max_length=50)
     tec_acronimo = models.CharField(max_length=50)
     tec_ano_criacao = models.CharField(max_length=4)
-    tec_logotipo = models.ImageField()
+    tec_logotipo = models.ImageField(upload_to=resolution_path)
     tec_site_link = models.CharField(max_length=100)
     tec_descricao = models.CharField(max_length=100)
 
@@ -76,7 +78,7 @@ class Aluno(models.Model):
     link_linkedin = models.CharField(max_length=100)
     link_instagram = models.CharField(max_length=100)
     link_github = models.CharField(max_length=100)
-    foto_aluno = models.ImageField()
+    foto_aluno = models.ImageField(upload_to=resolution_path)
     cidade = models.CharField(max_length=100)
 
     def __str__(self):
@@ -86,7 +88,7 @@ class Aluno(models.Model):
 class Noticia(models.Model):
     titulo = models.CharField(max_length=50)
     descricao = models.CharField(max_length=150)
-    imagem = models.ImageField()
+    imagem = models.ImageField(upload_to=resolution_path)
     link = models.CharField(max_length=200)
 
     def __str__(self):
