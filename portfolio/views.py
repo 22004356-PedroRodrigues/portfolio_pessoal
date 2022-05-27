@@ -96,11 +96,12 @@ def sobre_website_view(request):
     return render(request, 'portfolio/about_website.html', context)
 
 
+@login_required
 def cadeira_form_new_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('licenciatura'))
 
-    form = CadeiraForm(request.POST or None)
+    form = CadeiraForm(request.POST or None, request.FILES)
 
     if form.is_valid():
         form.save()
@@ -110,9 +111,10 @@ def cadeira_form_new_view(request):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def cadeira_form_edit_view(request, my_id):
     objeto = Cadeira.objects.get(id=my_id)
-    form = CadeiraForm(request.POST or None, instance=objeto)
+    form = CadeiraForm(request.POST or None, request.FILES, instance=objeto)
 
     if form.is_valid():
         form.save()
@@ -122,11 +124,12 @@ def cadeira_form_edit_view(request, my_id):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def aluno_form_new_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('contacto'))
 
-    form = AlunoForm(request.POST or None)
+    form = AlunoForm(request.POST or None, request.FILES)
 
     if form.is_valid():
         form.save()
@@ -136,9 +139,10 @@ def aluno_form_new_view(request):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def aluno_form_edit_view(request, my_id):
     objeto = Aluno.objects.get(id=my_id)
-    form = AlunoForm(request.POST or None, instance=objeto)
+    form = AlunoForm(request.POST or None, request.FILES, instance=objeto)
 
     if form.is_valid():
         form.save()
@@ -148,11 +152,12 @@ def aluno_form_edit_view(request, my_id):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def projeto_form_new_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('projetos'))
 
-    form = ProjetoForm(request.POST or None)
+    form = ProjetoForm(request.POST or None, request.FILES)
 
     if form.is_valid():
         form.save()
@@ -162,9 +167,10 @@ def projeto_form_new_view(request):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def projeto_form_edit_view(request, my_id):
     objeto = Projeto.objects.get(id=my_id)
-    form = ProjetoForm(request.POST or None, instance=objeto)
+    form = ProjetoForm(request.POST or None, request.FILES, instance=objeto)
 
     if form.is_valid():
         form.save()
@@ -174,11 +180,12 @@ def projeto_form_edit_view(request, my_id):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def tecnologia_form_new_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('tecnologia'))
 
-    form = TecnologiaForm(request.POST or None)
+    form = TecnologiaForm(request.POST or None, request.FILES)
 
     if form.is_valid():
         form.save()
@@ -188,9 +195,10 @@ def tecnologia_form_new_view(request):
     return render(request, 'portfolio/new_edit_delete.html', context)
 
 
+@login_required
 def tecnologia_form_edit_view(request, my_id):
     objeto = Tecnologia.objects.get(id=my_id)
-    form = TecnologiaForm(request.POST or None, instance=objeto)
+    form = TecnologiaForm(request.POST or None, request.FILES, instance=objeto)
 
     if form.is_valid():
         form.save()
@@ -198,13 +206,14 @@ def tecnologia_form_edit_view(request, my_id):
 
     context = {'form': form, 'my_id': my_id}
     return render(request, 'portfolio/new_edit_delete.html', context)
+
 
 @login_required
 def noticia_form_new_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('noticias'))
 
-    form = NoticiaForm(request.POST or None)
+    form = NoticiaForm(request.POST or None, request.FILES)
 
     if form.is_valid():
         form.save()
@@ -217,7 +226,7 @@ def noticia_form_new_view(request):
 @login_required
 def noticia_form_edit_view(request, my_id):
     objeto = Noticia.objects.get(id=my_id)
-    form = NoticiaForm(request.POST or None, instance=objeto)
+    form = NoticiaForm(request.POST or None, request.FILES, instance=objeto)
 
     if form.is_valid():
         form.save()
@@ -225,6 +234,34 @@ def noticia_form_edit_view(request, my_id):
 
     context = {'form': form, 'my_id': my_id}
     return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+@login_required
+def cadeira_form_delete_view(request, my_id):
+    objeto = Cadeira.objects.get(id=my_id)
+    objeto.delete()
+    return HttpResponseRedirect(reverse('licenciatura'))
+
+
+@login_required
+def aluno_form_delete_view(request, my_id):
+    objeto = Aluno.objects.get(id=my_id)
+    objeto.delete()
+    return HttpResponseRedirect(reverse('contacto'))
+
+
+@login_required
+def projeto_form_delete_view(request, my_id):
+    objeto = Projeto.objects.get(id=my_id)
+    objeto.delete()
+    return HttpResponseRedirect(reverse('projetos'))
+
+
+@login_required
+def tecnologia_form_delete_view(request, my_id):
+    objeto = Tecnologia.objects.get(id=my_id)
+    objeto.delete()
+    return HttpResponseRedirect(reverse('tecnologia'))
 
 
 def noticia_form_delete_view(request, my_id):

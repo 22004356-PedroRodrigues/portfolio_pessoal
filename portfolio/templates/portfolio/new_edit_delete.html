@@ -1,6 +1,7 @@
 {% extends 'portfolio/layout.html' %}
 {% load static %}
 {% block main %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/new_edit_delete.css' %}">
     <form action="" enctype="multipart/form-data" class="form_template" method="post" >
         {% csrf_token %}
         {{ form.as_p }}

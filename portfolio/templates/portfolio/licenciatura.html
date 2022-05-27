@@ -21,7 +21,14 @@
                                     <h2>{{ cadeira.nome_cadeira }}</h2>
                                     <h3>{{ cadeira.grupo }}</h3>
                                     <p>{{ cadeira.descricao }}</p>
+                                    <p>Rank: {{ cadeira.ranking }}</p>
+                                    <p>Prática: {{ cadeira.docente_pratica }}</p>
+                                    <p>Teórica: {{ cadeira.docente_teorica }}</p>
                                 </div>
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'editar_cadeira' cadeira.id %}">Editar</a>
+                                    <a href="{% url '' cadeira.id %}">Eliminar</a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}
@@ -43,12 +50,20 @@
                                     <h2>{{ cadeira.nome_cadeira }}</h2>
                                     <h3>{{ cadeira.grupo }}</h3>
                                     <p>{{ cadeira.descricao }}</p>
+                                    <p>Rank: {{ cadeira.ranking }}</p>
+                                    <p>Prática: {{ cadeira.docente_pratica }}</p>
+                                    <p>Teórica: {{ cadeira.docente_teorica }}</p>
                                 </div>
+                                {% if request.user.is_authenticated %}
+                                    <a href="{% url 'editar_cadeira' cadeira.id %}">Editar</a>
+                                    <a href="{% url 'eliminar_cadeira' cadeira.id %}">Eliminar</a>
+                                {% endif %}
                             </div>
                         </div>
                     {% endif %}
                 {% endfor %}
             </div>
         </div>
+        <a href="{% url 'nova_cadeira' %}">Nova</a>
     </div>
 {% endblock %}

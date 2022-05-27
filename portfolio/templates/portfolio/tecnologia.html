@@ -27,9 +27,14 @@
                                 <span>{{ tecnologia.tec_ano_criacao }} anos</span>
                             </li>
                         </ul>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'editar_tecnologia' tecnologia.id %}">Editar</a>
+                            <a href="{% url 'eliminar_tecnologiao' tecnologia.id %}">Eliminar</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
+    <a href="{% url 'nova_tecnologia' %}">Nova</a>
 {% endblock %}

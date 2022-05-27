@@ -41,4 +41,8 @@ urlpatterns = [
     path('nova_tecnologia', views.tecnologia_form_new_view, name='nova_tecnologia'),
     path('login', views.view_login, name='login'),
     path('logout', views.view_logout, name='logout'),
+    path('eliminar_cadeira/<int:my_id>', views.cadeira_form_delete_view, name='eliminar_cadeira'),
+    path('eliminar_aluno/<int:my_id>', views.aluno_form_delete_view, name='eliminar_aluno'),
+    path('eliminar_projeto/<int:my_id>', views.projeto_form_delete_view, name='eliminar_projeto'),
+    path('eliminar_tecnologia/<int:my_id>', views.tecnologia_form_delete_view, name='eliminar_tecnologia'),
 ]
