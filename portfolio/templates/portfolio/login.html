@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block main %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/login.css' %}">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="imgcontainer">
+            <img src="{% static 'portfolio/images/img_avatar2.png' %}" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="user"><b>Username</b></label>
+            <input type="text" placeholder="Introduzir Username" name="user" required>
+
+            <label for="pass"><b>Password</b></label>
+            <input type="password" placeholder="Introduzir password" name="pass" required>
+
+            <button type="submit">Login</button>
+        </div>
+    </form>
+{% endblock %}
+
+

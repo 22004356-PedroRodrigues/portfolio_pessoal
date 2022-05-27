@@ -1,5 +1,6 @@
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 from portfolio.models import *
@@ -93,3 +94,169 @@ def noticia_view(request):
 def sobre_website_view(request):
     context = {'informacaos': Informacao.objects.all()}
     return render(request, 'portfolio/about_website.html', context)
+
+
+def cadeira_form_new_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('licenciatura'))
+
+    form = CadeiraForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('licenciatura'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def cadeira_form_edit_view(request, my_id):
+    objeto = Cadeira.objects.get(id=my_id)
+    form = CadeiraForm(request.POST or None, instance=objeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('licenciatura'))
+
+    context = {'form': form, 'my_id': my_id}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def aluno_form_new_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('contacto'))
+
+    form = AlunoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('contacto'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def aluno_form_edit_view(request, my_id):
+    objeto = Aluno.objects.get(id=my_id)
+    form = AlunoForm(request.POST or None, instance=objeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('licenciatura'))
+
+    context = {'form': form, 'my_id': my_id}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def projeto_form_new_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('projetos'))
+
+    form = ProjetoForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('projetos'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def projeto_form_edit_view(request, my_id):
+    objeto = Projeto.objects.get(id=my_id)
+    form = ProjetoForm(request.POST or None, instance=objeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('projetos'))
+
+    context = {'form': form, 'my_id': my_id}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def tecnologia_form_new_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('tecnologia'))
+
+    form = TecnologiaForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('tecnologia'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def tecnologia_form_edit_view(request, my_id):
+    objeto = Tecnologia.objects.get(id=my_id)
+    form = TecnologiaForm(request.POST or None, instance=objeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('tecnologia'))
+
+    context = {'form': form, 'my_id': my_id}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+@login_required
+def noticia_form_new_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('noticias'))
+
+    form = NoticiaForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('noticias'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+@login_required
+def noticia_form_edit_view(request, my_id):
+    objeto = Noticia.objects.get(id=my_id)
+    form = NoticiaForm(request.POST or None, instance=objeto)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('noticias'))
+
+    context = {'form': form, 'my_id': my_id}
+    return render(request, 'portfolio/new_edit_delete.html', context)
+
+
+def noticia_form_delete_view(request, my_id):
+    objeto = Noticia.objects.get(id=my_id)
+    objeto.delete()
+    return HttpResponseRedirect(reverse('noticias'))
+
+
+def view_login(request):
+    if request.method == 'POST':
+        username = request.POST['user']
+        password = request.POST['pass']
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            return render(request, 'portfolio/login.html', {
+                'message': 'Credenciais invalidas.'
+            })
+
+    return render(request, 'portfolio/login.html')
+
+
+def view_logout(request):
+    logout(request)
+
+    return render(request, 'portfolio/index.html', {
+        'message': 'Foi desconetado.'
+    })

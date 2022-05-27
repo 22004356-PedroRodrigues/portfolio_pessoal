@@ -13,9 +13,14 @@
                         <p>
                             <button class="button"><a href="{{ noticia.link }}">LER MAIS...</a></button>
                         </p>
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'editar_noticia' noticia.id %}">Editar</a>
+                            <a href="{% url 'eliminar_noticia' noticia.id %}">Eliminar</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         {% endfor %}
+        <a href="{% url 'nova_noticia' %}">Nova</a>
     </div>
 {% endblock %}

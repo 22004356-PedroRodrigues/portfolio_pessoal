@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Post
+from .models import *
 
 
 class PostForm(ModelForm):
@@ -31,3 +31,78 @@ class PostForm(ModelForm):
         'titulo': 'indique qual o projeto em que trabalhou comigo',
         'descricao': 'indique até 155 caracteres como foi a experiência'
     }
+
+
+class CadeiraForm(ModelForm):
+    class Meta:
+        model = Cadeira
+        fields = '__all__'
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'nome_cadeira': 'Nome',
+            'ano': 'Ano',
+            'semestre': 'Semestre',
+            'ranking': 'Raking',
+            'grupo': 'Grupo',
+            'descricao': 'Descricao',
+            'imagem': 'Imagem',
+            'docente_teorica': 'Docente Teórica',
+            'docente_pratica': 'Docente Prática'
+        }
+
+
+class AlunoForm(ModelForm):
+    class Meta:
+        model = Aluno
+        fields = '__all__'
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'nome_aluno': 'Nome',
+            'link_linkedin': 'Link Linkedin',
+            'link_instagram': 'Link Instragram',
+            'link_github': 'Link Github',
+            'foto_aluno': 'Fotografia',
+            'cidade': 'Cidade'
+        }
+
+
+class ProjetoForm(ModelForm):
+    class Meta:
+        model = Projeto
+        fields = '__all__'
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'proj_titulo': 'Título',
+            'proj_descricao': 'Descrição',
+            'proj_imagem': 'Imagem',
+            'proj_ano': 'Ano',
+            'proj_cadeira': 'Cadeira'
+        }
+
+
+class TecnologiaForm(ModelForm):
+    class Meta:
+        model = Tecnologia
+        fields = '__all__'
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'tec_nome': 'Nome',
+            'tec_acronimo': 'Acrónimo',
+            'tec_ano_criacao': 'Data Criação',
+            'tec_logotipo': 'Logótipo',
+            'tec_site_link': 'Link',
+            'tec_descricao': 'Descrição'
+        }
+
+
+class NoticiaForm(ModelForm):
+    class Meta:
+        model = Noticia
+        fields = '__all__'
+        # texto a exibir junto à janela de inserção
+        labels = {
+            'titulo': 'Título',
+            'descricao': 'Descrição',
+            'imagem': 'Imagem',
+            'link': 'Link',
+        }
