@@ -22,7 +22,7 @@ class Cadeira(models.Model):
     ranking = models.IntegerField()
     grupo = models.CharField(max_length=50)
     descricao = models.CharField(max_length=255)
-    imagem = models.CharField(max_length=25)
+    imagem = models.ImageField()
     docente_teorica = models.ForeignKey(Professor, related_name='docente_teorica', on_delete=models.CASCADE)
     docente_pratica = models.ForeignKey(Professor, related_name='docente_pratica', on_delete=models.CASCADE)
 
