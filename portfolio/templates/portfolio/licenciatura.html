@@ -27,7 +27,7 @@
                                 </div>
                                 {% if request.user.is_authenticated %}
                                     <a href="{% url 'editar_cadeira' cadeira.id %}">Editar</a>
-                                    <a href="{% url '' cadeira.id %}">Eliminar</a>
+                                    <a href="{% url 'eliminar_cadeira' cadeira.id %}">Eliminar</a>
                                 {% endif %}
                             </div>
                         </div>
