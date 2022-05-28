@@ -14,7 +14,7 @@
         <h1>Alguns feedbacks...</h1>
         {% for post in posts %}
             <div class="container">
-                <img src="../../static/portfolio/images/hero-bg.jpg" alt="Avatar">
+                <img src="{% static 'portfolio/images/img_avatar2.png' %}" alt="Avatar">
                 <p><b>{{ post.nome_pessoa }}:</b> {{ post.descricao }}</p>
                 <span class="time">{{ post.data }}</span>
             </div>

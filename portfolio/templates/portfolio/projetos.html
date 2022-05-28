@@ -25,7 +25,9 @@
                 </div>
             </div>
         {% endfor %}
+    {% if request.user.is_authenticated %}
         <a href="{% url 'nova_projeto' %}">Nova</a>
+    {% endif %}
     </div>
 
 {% endblock %}

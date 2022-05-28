@@ -25,6 +25,8 @@
                 <a href="{% url 'eliminar_aluno' contacto.id %}">Eliminar</a>
             {% endif %}
         </div>
+    {% if request.user.is_authenticated %}
         <a href="{% url 'nova_aluno' %}">Nova</a>
+    {% endif %}
     </div>
 {% endblock %}

@@ -64,6 +64,8 @@
                 {% endfor %}
             </div>
         </div>
+    {% if request.user.is_authenticated %}
         <a href="{% url 'nova_cadeira' %}">Nova</a>
+    {% endif %}
     </div>
 {% endblock %}
