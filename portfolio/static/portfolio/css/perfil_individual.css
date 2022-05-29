@@ -2,8 +2,8 @@
     max-width: 100%;
 }
 
-header{
-  display: flex;
+header {
+    display: flex;
 }
 
 .container-fluid {
@@ -79,6 +79,6 @@ header{
     line-height: 27px;
 }
 
-.about-row{
+.about-row {
     text-align: center;
 }

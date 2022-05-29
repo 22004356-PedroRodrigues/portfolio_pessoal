@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/perfil_individual.css' %}">
+
+     <div id="about_us" class="about-sestion container-fluid">
+         <div class="container">
+             <div class="session-title row">
+                 <h2>{{ contacto.nome_prof }}</h2>
+             </div>
+             <div class="about-row row">
+                 <div class="col-md-5">
+                     <img class="about_logo" src="{{ contacto.foto.url }}" alt="">
+                 </div>
+                 <div class="col-md-7">
+                     <p>Linkedin: <a href="{{ contacto.link_linkedin }}">{{ contacto.link_linkedin }}</a></p>
+                     <p>Lusófona: <a href="{{ contacto.link_lusofona }}">{{ contacto.link_lusofona }}</a></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+{% endblock %}

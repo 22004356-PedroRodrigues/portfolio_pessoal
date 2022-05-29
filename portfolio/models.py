@@ -9,6 +9,7 @@ class Professor(models.Model):
     nome_prof = models.CharField(max_length=100)
     link_linkedin = models.CharField(max_length=100)
     link_lusofona = models.CharField(max_length=100)
+    foto = models.ImageField()
 
     def __str__(self):
         return self.nome_prof

@@ -21,9 +21,21 @@
                                     <h2>{{ cadeira.nome_cadeira }}</h2>
                                     <h3>{{ cadeira.grupo }}</h3>
                                     <p>{{ cadeira.descricao }}</p>
-                                    <p>Rank: {{ cadeira.ranking }}</p>
-                                    <p>Prática: {{ cadeira.docente_pratica }}</p>
-                                    <p>Teórica: {{ cadeira.docente_teorica }}</p>
+                                    <p>Rank:
+                                        {% for x in range %}
+                                            {% if x <= cadeira.ranking %}
+                                                <span class="fa fa-star checked"></span>
+                                            {% else %}
+                                                <span class="fa fa-star"></span>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <p>Prática: <a
+                                            href="{% url 'docente' cadeira.docente_pratica_id %}">{{ cadeira.docente_pratica }}</a>
+                                    </p>
+                                    <p>Teórica: <a
+                                            href="{% url 'docente' cadeira.docente_teorica_id %}">{{ cadeira.docente_teorica }}</a>
+                                    </p>
                                 </div>
                                 {% if request.user.is_authenticated %}
                                     <a href="{% url 'editar_cadeira' cadeira.id %}">Editar</a>
@@ -50,9 +62,21 @@
                                     <h2>{{ cadeira.nome_cadeira }}</h2>
                                     <h3>{{ cadeira.grupo }}</h3>
                                     <p>{{ cadeira.descricao }}</p>
-                                    <p>Rank: {{ cadeira.ranking }}</p>
-                                    <p>Prática: {{ cadeira.docente_pratica }}</p>
-                                    <p>Teórica: {{ cadeira.docente_teorica }}</p>
+                                    <p>Rank:
+                                        {% for x in range %}
+                                            {% if x <= cadeira.ranking %}
+                                                <span class="fa fa-star checked"></span>
+                                            {% else %}
+                                                <span class="fa fa-star"></span>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <p>Prática: <a
+                                            href="{% url 'docente' cadeira.docente_pratica_id %}">{{ cadeira.docente_pratica }}</a>
+                                    </p>
+                                    <p>Teórica: <a
+                                            href="{% url 'docente' cadeira.docente_teorica_id %}">{{ cadeira.docente_teorica }}</a>
+                                    </p>
                                 </div>
                                 {% if request.user.is_authenticated %}
                                     <a href="{% url 'editar_cadeira' cadeira.id %}">Editar</a>
@@ -64,8 +88,8 @@
                 {% endfor %}
             </div>
         </div>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'nova_cadeira' %}">Nova</a>
-    {% endif %}
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'nova_cadeira' %}">Nova</a>
+        {% endif %}
     </div>
 {% endblock %}

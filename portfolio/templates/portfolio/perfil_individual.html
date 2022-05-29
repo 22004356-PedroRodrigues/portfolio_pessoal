@@ -20,13 +20,6 @@
                     <h3>Cidade: {{ contacto.cidade }}</h3>
                 </div>
             </div>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'editar_aluno' contacto.id %}">Editar</a>
-                <a href="{% url 'eliminar_aluno' contacto.id %}">Eliminar</a>
-            {% endif %}
         </div>
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'nova_aluno' %}">Nova</a>
-    {% endif %}
     </div>
 {% endblock %}

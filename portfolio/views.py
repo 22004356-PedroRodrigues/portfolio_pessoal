@@ -13,7 +13,7 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
-    context = {'cadeiras': Cadeira.objects.all()}
+    context = {'cadeiras': Cadeira.objects.all(), 'range': range(1, 6)}
     return render(request, 'portfolio/licenciatura.html', context)
 
 
@@ -297,3 +297,9 @@ def view_logout(request):
     return render(request, 'portfolio/index.html', {
         'message': 'Foi desconetado.'
     })
+
+
+def docente_view(request, my_id):
+    objeto = Professor.objects.get(id=my_id)
+    context = {'contacto': objeto, 'my_id': my_id}
+    return render(request, 'portfolio/docente.html', context)
