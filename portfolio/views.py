@@ -1,3 +1,4 @@
+import cloudinary.uploader
 from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -6,6 +7,10 @@ from django.contrib.auth.decorators import login_required
 from portfolio.models import *
 from portfolio.forms import *
 from matplotlib import pyplot as plt
+from environs import Env
+
+env = Env()
+env.read_env()
 
 
 def home_page_view(request):
@@ -59,6 +64,11 @@ def quizz_view(request):
 
 
 def desenha_graficos_resultado(request):
+    cloudinary.config(
+        cloud_name=env.str("CLOUD_NAME"),
+        api_key=env.str("API_KEY"),
+        api_secret=env.str("API_SECRET")
+    )
     usernames_y = []
     pontuacao_x = []
     for pontuacao in PontuacaoQuizz.objects.all():
@@ -67,7 +77,10 @@ def desenha_graficos_resultado(request):
     pontuacao_x.reverse()
     usernames_y.reverse()
     plt.barh(usernames_y, pontuacao_x)
-    plt.savefig('portfolio/static/portfolio/images/plot.png', bbox_inches='tight')
+    plt.savefig('plot.png', bbox_inches='tight')
+    cloudinary.uploader.upload('plot.png',
+                               public_id="portfolio/sample_id",
+                               invalidate=True)
     pass
 
 
