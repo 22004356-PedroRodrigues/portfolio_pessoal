@@ -15,8 +15,8 @@
                 </div>
                 <div class="thumbnail-boxed-body">
                     <p class="thumbnail-boxed-title"><a
-                            href="{{ tecnologia.tec_site_link }}"></a>{{ tecnologia.tec_acronimo }}
-                        : {{ tecnologia.tec_nome }}</p>
+                            href="{{ tecnologia.tec_site_link }}">{{ tecnologia.tec_acronimo }}
+                        : {{ tecnologia.tec_nome }}</a></p>
                     <div class="thumbnail-boxed-text">
                         <p>{{ tecnologia.tec_descricao }}</p>
                     </div>
@@ -29,7 +29,7 @@
                         </ul>
                         {% if request.user.is_authenticated %}
                             <a href="{% url 'editar_tecnologia' tecnologia.id %}">Editar</a>
-                            <a href="{% url 'eliminar_tecnologiao' tecnologia.id %}">Eliminar</a>
+                            <a href="{% url 'eliminar_tecnologia' tecnologia.id %}">Eliminar</a>
                         {% endif %}
                     </div>
                 </div>
