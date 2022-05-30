@@ -134,9 +134,9 @@ STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))  # novo
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # novo
 
 CLOUDINARY_STORAGE = {
-    'cloud_name': env.str("CLOUD_NAME"),
-    'api_key': env.str("API_KEY"),
-    'api_secret': env.str("API_SECRET"),
+    'CLOUD_NAME': env.str("CLOUD_NAME"),
+    'API_KEY': env.str("API_KEY"),
+    'API_SECRET': env.str("API_SECRET"),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
