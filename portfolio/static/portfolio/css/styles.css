@@ -273,3 +273,14 @@ p {
 .dropdown-content a {
     padding: 1rem;
 }
+
+.clock {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: black;
+    font-size: 80px;
+    letter-spacing: 7px;
+}

@@ -8,6 +8,8 @@
             <span class="tooltiptext">Click!</span>
         </a>
         </p>
+        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+        <div id="joke" class="clock" style="font-size: 30px; top: 30%; left: 40%"></div>
         {% load static %}
         <img id="my_picture" src="{% static 'portfolio/images/hero-bg.jpg' %}">
     </div>
@@ -59,4 +61,25 @@
             </div>
         </div>
     </article>
+    <script>
+        function showTime() {
+            const date = new Date();
+            let h = date.getHours(); // 0 - 23
+            let m = date.getMinutes(); // 0 - 59
+            let s = date.getSeconds(); // 0 - 59
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            document.getElementById("MyClockDisplay").textContent = h + ":" + m + ":" + s;
+            setTimeout(showTime, 1000);
+        }
+
+        let anotherFetch = fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,explicit&type=single");
+        anotherFetch.then(res =>
+            res.json()).then(d => {
+                console.log(d.joke);
+            document.getElementById("joke").textContent = d.joke;
+        })
+        showTime();
+    </script>
 {% endblock %}
