@@ -285,6 +285,12 @@ p {
     letter-spacing: 7px;
 }
 
+@media screen and (max-width: 650px) {
+    .social_media_icons, .logo_faculdade{
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1256px) {
     #logo {
         height: 85%;
