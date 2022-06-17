@@ -108,7 +108,6 @@ class TFC(models.Model):
     autor = models.CharField(max_length=200)
     ano = models.IntegerField()
     imagem = models.ImageField()
-    relatorio = models.FileField()
     github = models.CharField(max_length=250)
 
     def __str__(self):
