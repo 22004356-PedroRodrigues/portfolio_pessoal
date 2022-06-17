@@ -1,3 +1,4 @@
 .env
 __pychar__/
 db.sqlite3
+portfolio/static/portfolio/images/musica.png
