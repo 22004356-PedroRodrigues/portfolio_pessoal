@@ -33,6 +33,11 @@
         <img id="logo_img" class="weather" src="" alt="associations logo">
         <p class="weather_text" style="text-align: center"></p>
     </a>
+    <input type="checkbox" id="nav_checkbox">
+    <label for="nav_checkbox" class="check">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-x"></i>
+    </label>
     <nav>
         <div class="dropdown">
             <a>Sobre mim</a>
@@ -46,17 +51,16 @@
             <a>Projetos</a>
             <div class="dropdown-content">
                 <a href="{% url 'projetos' %}">Realizados por mim</a>
-                <a href="">Trabalhos Finais de Curso interessantes</a>
+                <a href="{% url 'tfc' %}">Trabalhos Finais de Curso interessantes</a>
             </div>
         </div>
         <div class="dropdown">
-            <a href="">Programação Web</a>
+            <a>Programação Web</a>
             <div class="dropdown-content">
                 <a href="{% url 'quizz' %}">Quizz</a>
                 <a href="{% url 'tecnologia' %}">Tecnologias</a>
                 <a href="https://a22004356-pw-lab1.herokuapp.com/">Laboratórios</a>
                 <a href="{% url 'noticias' %}">Notícias</a>
-                <a href="">Exemplos de técnicas</a>
             </div>
         </div>
         <a href="{% url 'blog' %}">Blog</a>

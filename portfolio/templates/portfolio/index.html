@@ -74,11 +74,12 @@
             setTimeout(showTime, 1000);
         }
 
-        let anotherFetch = fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,explicit&type=single");
+        /*let anotherFetch = fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,explicit&type=single");*/
+        let anotherFetch = fetch("https://api.chucknorris.io/jokes/random");
         anotherFetch.then(res =>
             res.json()).then(d => {
                 console.log(d.joke);
-            document.getElementById("joke").textContent = d.joke;
+            document.getElementById("joke").textContent = d.value;
         })
         showTime();
     </script>

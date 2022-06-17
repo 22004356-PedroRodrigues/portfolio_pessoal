@@ -100,3 +100,16 @@ class Informacao(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class TFC(models.Model):
+    titulo = models.CharField(max_length=200)
+    descricao = models.CharField(max_length=500)
+    autor = models.CharField(max_length=200)
+    ano = models.IntegerField()
+    imagem = models.ImageField()
+    relatorio = models.FileField()
+    github = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.titulo

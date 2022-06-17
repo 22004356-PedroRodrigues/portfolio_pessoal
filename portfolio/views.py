@@ -316,3 +316,8 @@ def docente_view(request, my_id):
     objeto = Professor.objects.get(id=my_id)
     context = {'contacto': objeto, 'my_id': my_id}
     return render(request, 'portfolio/docente.html', context)
+
+
+def tfc_view(request):
+    context = {'tfc': TFC.objects.all()}
+    return render(request, 'portfolio/tfcs.html', context)

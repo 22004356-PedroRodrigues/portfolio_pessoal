@@ -1,0 +1,26 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/project.css' %}">
+
+
+    <div class="cards">
+        {% for individual in tfc %}
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front"
+                         style="background-image: url({{ individual.imagem.url }})">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Título: {{ individual.titulo }}</h1>
+                        <p>Descrição: {{ individual.descricao }}</p>
+                        <p>Ano: {{ individual.ano }}</p>
+                        <p>Portfolio: {{ individual.relatorio.url }}</p>
+                        <p>Github:<a href="{{ individual.github }}"> {{ individual.github }}</a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
